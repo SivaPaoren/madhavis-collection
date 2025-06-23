@@ -7,55 +7,111 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
 
-let index = 0;
-let intervalId;
+  const slides = document.querySelectorAll(".slide");
+  const nextBtn = document.getElementById("next");
+  const prevBtn = document.getElementById("prev");
+  const slider = document.getElementById("slider");
+  const dotsContainer = document.getElementById("dots");
 
-function showSlide(i) {
-  slides.forEach((slide, idx) => {
-    slide.classList.remove('active');
-    if (idx === i) {
-      slide.classList.add('active');
-    }
+  let index = 0;
+  let intervalId;
+
+  // ✅ Create dots dynamically
+  slides.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      index = i;
+      showSlide(index);
+      resetInterval();
+    });
+    dotsContainer.appendChild(dot);
   });
-}
 
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
+  const dots = document.querySelectorAll(".dot");
 
-function prevSlide() {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-}
+  function showSlide(i) {
+    slides.forEach((slide, idx) => {
+      slide.classList.remove("active");
+      dots[idx].classList.remove("active");
+    });
+    slides[i].classList.add("active");
+    dots[i].classList.add("active");
+  }
 
-function startAutoSlide() {
-  intervalId = setInterval(nextSlide, 4000);
-}
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
 
-function stopAutoSlide() {
-  clearInterval(intervalId);
-}
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
 
-nextBtn.addEventListener('click', () => {
-  stopAutoSlide();
-  nextSlide();
-  startAutoSlide();
-});
+  function startAutoSlide() {
+    intervalId = setInterval(nextSlide, 4000);
+  }
 
-prevBtn.addEventListener('click', () => {
-  stopAutoSlide();
-  prevSlide();
-  startAutoSlide();
-});
+  function stopAutoSlide() {
+    clearInterval(intervalId);
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
-  showSlide(index);
-  startAutoSlide();
-});
+  function resetInterval() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  // ✅ Pause on hover
+  slider.addEventListener("mouseenter", stopAutoSlide);
+  slider.addEventListener("mouseleave", startAutoSlide);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    showSlide(index);
+    startAutoSlide();
+  });
+
+
+
+  // ✅ Swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+    const threshold = 50;
+
+    if (swipeDistance > threshold) {
+      prevSlide();
+      resetInterval();
+    } else if (swipeDistance < -threshold) {
+      nextSlide();
+      resetInterval();
+    }
+  }
+
+
+
 
 document.getElementById("year").textContent = new Date().getFullYear();

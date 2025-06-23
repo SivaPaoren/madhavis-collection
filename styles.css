@@ -21,7 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #8B0000;
+  background-color: #12492e;
   padding: 1rem 2rem;
   color: white;
 }
@@ -101,7 +101,7 @@ body {
     top: 100%;
     right: 0;
     flex-direction: column;
-    background-color: #8B0000;
+    background-color: #12492e;
     width: 100%;
     max-height: 0;
     overflow: hidden;
@@ -118,44 +118,7 @@ body {
   }
 }
 
-/* Navbar */
 
-
-
-
-/* Slider */
-.slider {
-  position: relative;
-  width: 100%;
-  max-height: 400px;
-  overflow: hidden;
-}
-
-.slides {
-  display: flex;
-  width: 100%;
-}
-
-.slide {
-  width: 100%;
-  display: none;
-}
-
-.slide:first-child {
-  display: block;
-}
-
-.learn-more {
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #b42b51;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
 
 /* Products */
 .collection {
@@ -256,7 +219,7 @@ footer {
   position: relative;
   overflow: hidden;
   width: 100%;
-  background-color: #ffe6eb;
+  background-color: #124d66;
    /* Adds space below navbar */
   z-index: 0;
   
@@ -449,4 +412,63 @@ footer {
     width: 100%;
     height: 250px;
   }
+}
+
+/* Dot navigation */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ff6a95;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  background-color: #ffe6eb;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Caption style */
+.caption {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  font-size: 1.5rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
 }

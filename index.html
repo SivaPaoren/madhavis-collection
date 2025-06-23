@@ -29,15 +29,26 @@
     <!-- Navbar -->
     <section class="page-container">
       <!-- Image Slider -->
-      <section class="slider">
+      <section class="slider" id="slider">
         <div class="slides" id="slides">
-          <img src="img1.webp" class="slide" />
-          <img src="img2.jpg" class="slide" />
-          <img src="img3.jpg" class="slide" />
+          <div class="slide">
+            <!-- Optional to add text -->
+            <img src="img1.webp" />
+          </div>
+          <div class="slide">
+            <img src="img2.jpg" />
+          </div>
+          <div class="slide">
+            <img src="img3.webp" />
+          </div>
         </div>
+
         <button class="prev" id="prev">&#10094;</button>
         <button class="next" id="next">&#10095;</button>
         <button class="learn-more">Learn More</button>
+
+        <!-- ✅ Dot navigation -->
+        <div class="dots" id="dots"></div>
       </section>
 
       <!-- Main Body -->
