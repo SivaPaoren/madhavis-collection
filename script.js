@@ -58,14 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
   startAutoSlide();
 });
 
-// Highlight active nav link
-const links = document.querySelectorAll('.nav-links a');
-const currentPath = window.location.pathname;
-
-links.forEach(link => {
-  const linkPath = new URL(link.href).pathname;
-
-  if (currentPath.endsWith(linkPath)) {
-    link.classList.add('active');
-  }
-});
+document.getElementById("year").textContent = new Date().getFullYear();
