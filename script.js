@@ -111,6 +111,25 @@ hamburger.addEventListener('click', () => {
     }
   }
 
+  //sliding the small images
+  const container = document.getElementById("productContainer");
+  const scrollLeftBtn = document.getElementById("scrollLeft");
+  const scrollRightBtn = document.getElementById("scrollRight");
+
+  scrollLeftBtn.addEventListener("click", () => {
+    container.scrollBy({
+      left: -250,
+      behavior: "smooth"
+    });
+  });
+
+  scrollRightBtn.addEventListener("click", () => {
+    container.scrollBy({
+      left: 250,
+      behavior: "smooth"
+    });
+  });
+
 
 
 
