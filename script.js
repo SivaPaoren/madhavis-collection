@@ -133,4 +133,23 @@ hamburger.addEventListener('click', () => {
 
 
 
+  //video card slider part
+   const videoSlider = document.getElementById('videoSlider');
+  const scrollVideoLeft = document.getElementById('scrollVideoLeft');
+  const scrollVideoRight = document.getElementById('scrollVideoRight');
+
+  scrollVideoLeft.addEventListener('click', () => {
+    videoSlider.scrollBy({
+      left: -300,
+      behavior: 'smooth'
+    });
+  });
+
+  scrollVideoRight.addEventListener('click', () => {
+    videoSlider.scrollBy({
+      left: 300,
+      behavior: 'smooth'
+    });
+  });
+
 document.getElementById("year").textContent = new Date().getFullYear();
