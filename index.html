@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indian Boutique - Home</title>
+    <title>Madhavi's Collection</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -13,141 +14,113 @@
     <!-- Navbar -->
     <nav class="navbar">
       <div class="logo">Madhavi's Collection</div>
-
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
-
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <!-- Navbar -->
-    <section class="page-container">
-      <!-- Image Slider -->
+    <div class="page-container">
+      <!-- Hero Slider -->
       <section class="slider" id="slider">
-        <div class="slides" id="slides">
-          <div class="slide">
-            <!-- Optional to add text -->
-            <img src="img1.webp" />
+        <div class="slides">
+          <div class="slide active">
+            <img src="img1.webp" alt="Slide 1" />
+            <div class="caption">Unique Thai Designs</div>
           </div>
           <div class="slide">
-            <img src="img2.jpg" />
+            <img src="img2.jpg" alt="Slide 2" />
+            <div class="caption">Handpicked Fashion</div>
           </div>
           <div class="slide">
-            <img src="img3.webp" />
+            <img src="img3.webp" alt="Slide 3" />
+            <div class="caption">Elegant Collections</div>
           </div>
         </div>
-
-        <button class="prev" id="prev">&#10094;</button>
-        <button class="next" id="next">&#10095;</button>
-        <button class="learn-more">Learn More</button>
-
-        <!-- ✅ Dot navigation -->
+        <button class="prev" id="prev">❮</button>
+        <button class="next" id="next">❯</button>
         <div class="dots" id="dots"></div>
       </section>
 
-      <!-- Main Body -->
-      <main class="home-content">
-        <section class="collection">
-          <h2>Explore Our New Arrivals</h2>
-          <div class="product-slider">
-            <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
-
-            <div class="products" id="productContainer">
-              <div class="product-card">
-                <img src="lahenga.jpeg" alt="Lehenga" />
-                <h3>Designer Lehengas</h3>
-              </div>
-              <div class="product-card">
-                <img src="saree.jpeg" alt="Saree" />
-                <h3>Traditional Sarees</h3>
-              </div>
-              <div class="product-card">
-                <img src="kurti.jpeg" alt="Kurti" />
-                <h3>Ethnic Kurtis</h3>
-              </div>
-              <div class="product-card">
-                <img src="lahenga.jpeg" alt="Lehenga" />
-                <h3>Designer Lehengas</h3>
-              </div>
-              <div class="product-card">
-                <img src="saree.jpeg" alt="Saree" />
-                <h3>Traditional Sarees</h3>
-              </div>
-              <div class="product-card">
-                <img src="kurti.jpeg" alt="Kurti" />
-                <h3>Ethnic Kurtis</h3>
-              </div>
-              <!-- Add more cards -->
+      <!-- Product Section -->
+      <section class="collection">
+        <h2 class="section-title">Our Latest Products</h2>
+        <div class="product-slider">
+          <button class="scroll-btn left" id="scrollLeft">❮</button>
+          <div class="products" id="productContainer">
+            <div class="product-card">
+              <img src="kurti.jpeg" alt="Product 1" />
+              <h4>Traditional Thai Dress</h4>
             </div>
-
-            <button class="scroll-btn right" id="scrollRight">&#10095;</button>
-          </div>
-        </section>
-
-        <!--tiktok show case start here-->
-        <section class="vertical-video-section">
-          <h2 class="section-title">🎬 Your Reels</h2>
-
-          <div class="video-scroll-container">
-            <button class="video-scroll-btn left" id="scrollVideoLeft">
-              &#x276E;
-            </button>
-
-            <div class="video-slider" id="videoSlider">
-              <div class="video-card">
-                <video src="videos/vid1.mp4" controls muted playsinline></video>
-                <h4>Video Title 1</h4>
-                <p class="video-description">
-                  A gorgeous traditional piece in vibrant color.
-                </p>
-              </div>
-              <div class="video-card">
-                <video src="videos/vid2.mp4" controls muted playsinline></video>
-                <h4>Video Title 2</h4>
-                <p class="video-description">
-                  A gorgeous traditional piece in vibrant color.
-                </p>
-              </div>
-              <div class="video-card">
-                <video src="videos/vid3.mp4" controls muted playsinline></video>
-                <h4>Video Title 3</h4>
-                <p class="video-description">
-                  A gorgeous traditional piece in vibrant color.
-                </p>
-              </div>
-
-              <div class="video-card">
-                <video src="videos/vid4.mp4" controls muted playsinline></video>
-                <h4>Video Title 3</h4>
-                <p class="video-description">
-                  A gorgeous traditional piece in vibrant color.
-                </p>
-              </div>
-
-              <div class="video-card">
-                <video src="videos/vid5.mp4" controls muted playsinline></video>
-                <h4>Video Title 3</h4>
-                <p class="video-description">
-                  A gorgeous traditional piece in vibrant color.
-                </p>
-              </div>
-              <!-- Add more video-card blocks -->
+            <div class="product-card">
+              <img src="lahenga.jpeg" alt="Product 2" />
+              <h4>Handmade Accessories</h4>
             </div>
-
-            <button class="video-scroll-btn right" id="scrollVideoRight">
-              &#x276F;
-            </button>
+            <div class="product-card">
+              <img src="saree.jpeg" alt="Product 3" />
+              <h4>Modern Fusion Outfit</h4>
+            </div>
+            <div class="product-card">
+              <img src="kurti.jpeg" alt="Product 1" />
+              <h4>Traditional Thai Dress</h4>
+            </div>
+            <div class="product-card">
+              <img src="lahenga.jpeg" alt="Product 2" />
+              <h4>Handmade Accessories</h4>
+            </div>
+            <div class="product-card">
+              <img src="saree.jpeg" alt="Product 3" />
+              <h4>Modern Fusion Outfit</h4>
+            </div>
+            <!-- Add more products as needed -->
           </div>
-        </section>
-      </main>
-    </section>
+          <button class="scroll-btn right" id="scrollRight">❯</button>
+        </div>
+      </section>
 
+      <!-- Vertical Video Section -->
+      <section class="vertical-video-section">
+        <h2 class="section-title">Watch Our Styles</h2>
+        <div class="video-scroll-container">
+          <button class="video-scroll-btn left" id="scrollVideoLeft">❮</button>
+          <div class="video-slider" id="videoSlider">
+            <div class="video-card">
+              <video src="videos/vid1.mp4" controls></video>
+              <h4>Behind the Scenes</h4>
+              <p class="video-description">How we prepare our collections</p>
+            </div>
+            <div class="video-card">
+              <video src="videos/vid2.mp4" controls></video>
+              <h4>Customer Favorites</h4>
+              <p class="video-description">Explore our top-selling styles</p>
+            </div>
+            <div class="video-card">
+              <video src="videos/vid3.mp4" controls></video>
+              <h4>Customer Favorites</h4>
+              <p class="video-description">Explore our top-selling styles</p>
+            </div>
+            <div class="video-card">
+              <video src="videos/vid4.mp4" controls></video>
+              <h4>Customer Favorites</h4>
+              <p class="video-description">Explore our top-selling styles</p>
+            </div>
+            <div class="video-card">
+              <video src="videos/vid5.mp4" controls></video>
+              <h4>Customer Favorites</h4>
+              <p class="video-description">Explore our top-selling styles</p>
+            </div>
+          </div>
+          <button class="video-scroll-btn right" id="scrollVideoRight">
+            ❯
+          </button>
+        </div>
+      </section>
+    </div>
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-container">
@@ -161,38 +134,39 @@
             <a
               href="https://www.facebook.com/profile.php?id=100085196544014"
               class="facebook"
-              aria-label="Facebook"
               target="_blank"
-              rel="noopener noreferrer"
               ><i class="fab fa-facebook-f"></i
             ></a>
-
             <a
-              href="#"
+              href="https://www.instagram.com/sadhana_roy2/"
               class="instagram"
-              aria-label="Instagram"
               target="_blank"
-              rel="noopener noreferrer"
               ><i class="fab fa-instagram"></i
             ></a>
-
             <a
               href="https://www.tiktok.com/@madhavicollection3?is_from_webapp=1&sender_device=pc"
               class="tiktok"
-              aria-label="TikTok"
               target="_blank"
-              rel="noopener noreferrer"
               ><i class="fab fa-tiktok"></i
             ></a>
-
             <a
-              href="https://wa.me/66619793470"
-              class="whatsapp"
-              aria-label="WhatsApp"
+              href="https://wa.me/66619793470?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20chat.
+"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
+              class="whatsapp"
               ><i class="fab fa-whatsapp"></i
             ></a>
+            <a
+              href="https://wa.me/66619793470?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20chat.
+"
+              class="whatsapp-float"
+              aria-label="Chat with us on WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
         </div>
 
@@ -210,13 +184,13 @@
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
         &copy; <span id="year"></span> Madhavi's Collection. All rights
         reserved.
       </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

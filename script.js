@@ -152,4 +152,24 @@ hamburger.addEventListener('click', () => {
     });
   });
 
+  $(document).ready(function () {
+      $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const message = $('#message').val().trim();
+
+        if (!name || !email || !message) {
+          alert('Please fill in all fields!');
+          return;
+        }
+
+        $('#formMessage').fadeIn();
+        $(this)[0].reset();
+      });
+    });
+
+    // Set current year in footer
+    $('#year').text(new Date().getFullYear());
+
 document.getElementById("year").textContent = new Date().getFullYear();
