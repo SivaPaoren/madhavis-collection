@@ -19,7 +19,7 @@
     submitBtn.textContent = 'Sending...';
     formMessage.style.display = 'none';
 
-    emailjs.sendForm('service_2axq0pe', 'template_nojl8nd', form)
+    emailjs.sendForm('service_asm27lm', 'template_nojl8nd', form)
       .then(() => {
         formMessage.textContent = '✅ Thank you! Your message has been sent.';
         formMessage.style.color = 'green';
