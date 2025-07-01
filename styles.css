@@ -8,8 +8,8 @@
 
 body {
   line-height: 1.6;
-  background: #fff;
-  color: #333;
+  background: #c2ddd0;
+  color: #ffffff;
 }
 
 /* Navbar */
@@ -150,7 +150,7 @@ body {
   scroll-snap-align: center;
   border: 1px solid #ddd;
   border-radius: 10px;
-  background: #fafafa;
+  background: #12492e;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -392,6 +392,7 @@ footer {
   margin: 0 auto; /* Centers the container */
   padding: 2rem 1rem; /* Space inside */
   box-sizing: border-box;
+  background-color: #c2ddd0;
 }
 
 
@@ -401,7 +402,23 @@ footer {
   background-color: #f4f4f4;
   padding: 2rem 1rem;
   margin-top: 2rem;
+  color: #8B0000;
 }
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer a {
+  text-decoration: none;
+  color: #8B0000;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: #333;
+}
+
 
 .footer-container {
   display: flex;
@@ -409,6 +426,7 @@ footer {
   gap: 2rem;
   flex-wrap: wrap;
   align-items: center;
+  
 }
 
 .footer-left {
@@ -437,7 +455,7 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.profile p {
+.profile p{
   margin-top: 0.5rem;
   font-weight: bold;
   color: #8B0000;
@@ -481,6 +499,7 @@ footer {
     height: 250px;
   }
 }
+
 
 /* Dot navigation */
 .dots {
@@ -573,7 +592,7 @@ footer {
 .video-card {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  background: #fff;
+  background: #12492e;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -593,7 +612,7 @@ footer {
   margin-top: 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
 }
 
 .video-card p.video-description {
@@ -680,6 +699,14 @@ footer {
 .whatsapp-float i {
   font-size: 22px;
 }
+
+
+
+
+
+
+
+
 
 
 
