@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me - Madhavi's Collection</title>
+    <title>About Us - Madhavi's Collection</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -28,54 +29,139 @@
 
     <!-- About Content -->
     <section class="about-section">
-      <h1>About Me</h1>
+      <div class="about-header">
+        <h1>About Madhavi's Collection</h1>
+        <p>
+          Celebrating the timeless elegance of Indian heritage through
+          contemporary fashion excellence
+        </p>
+      </div>
+
       <div class="about-content">
         <div class="about-text">
+          <h2>Our Story</h2>
           <p>
-            Hello! I'm <span class="highlight">Madhavi</span>, the heart and
-            hands behind <span class="highlight">Madhavi's Collection</span>.
-            What started as a passion for traditional and ethnic Indian fashion
-            quickly turned into a dream to bring timeless elegance and modern
-            charm to everyone who loves dressing with culture and confidence.
+            Founded with a passion for preserving and promoting the rich textile
+            heritage of India,
+            <span class="highlight">Madhavi's Collection</span> has emerged as a
+            trusted destination for authentic ethnic wear. Our journey began
+            with a simple yet powerful vision: to bridge the gap between
+            traditional craftsmanship and modern fashion sensibilities.
           </p>
           <p>
-            I’ve always believed that fashion is not just about how you look,
-            but how you feel. That’s why each piece in my collection is
-            carefully curated, keeping in mind the comfort, beauty, and story
-            behind every thread.
+            Under the visionary leadership of
+            <span class="highlight">Madhavi</span>, we have built strong
+            relationships with skilled artisans across India, ensuring that
+            every piece in our collection tells a story of cultural heritage
+            while meeting contemporary quality standards.
           </p>
           <p>
-            From <strong>handwoven sarees</strong> to
-            <strong>designer lehengas</strong> and
-            <strong>elegant kurtis</strong>, I aim to offer you something
-            unique, high-quality, and made with love.
-          </p>
-
-          <div class="values">
-            <h3>My Values</h3>
-            <ul>
-              <li>Celebrating traditional craftsmanship</li>
-              <li>Promoting sustainable and ethical fashion</li>
-              <li>Offering personalized service and attention</li>
-              <li>Empowering local artisans</li>
-            </ul>
-          </div>
-
-          <p>
-            Thank you for being here. Whether you’re shopping for a special
-            occasion or just exploring the beauty of Indian wear, I hope you
-            find something that speaks to your heart.
-          </p>
-
-          <p style="margin-top: 1rem; font-style: italic">
-            With love, <br />
-            Madhavi
+            From exquisite <strong>handwoven sarees</strong> and
+            <strong>designer lehengas</strong> to elegant
+            <strong>kurtis</strong> and <strong>formal wear</strong>, we offer a
+            carefully curated selection that celebrates the diversity and beauty
+            of Indian fashion.
           </p>
         </div>
 
         <div class="about-image">
-          <img src="profile.jpg" alt="Madhavi - Founder" />
+          <img src="profile.jpg" alt="Madhavi - Founder & Creative Director" />
         </div>
+      </div>
+
+      <div class="stats-section">
+        <div class="stat-card">
+          <i class="fas fa-users"></i>
+          <h3>5000+</h3>
+          <p>Happy Customers</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-tshirt"></i>
+          <h3>500+</h3>
+          <p>Unique Designs</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-handshake"></i>
+          <h3>50+</h3>
+          <p>Partner Artisans</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-star"></i>
+          <h3>4.9</h3>
+          <p>Customer Rating</p>
+        </div>
+      </div>
+
+      <div class="values-section">
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="value-content">
+              <h3>Authentic Craftsmanship</h3>
+              <p>
+                We work directly with skilled artisans to preserve traditional
+                techniques and ensure authentic, high-quality products that
+                honor India's rich textile heritage.
+              </p>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="value-content">
+              <h3>Sustainable Fashion</h3>
+              <p>
+                Committed to ethical and sustainable practices, we prioritize
+                eco-friendly materials and support fair trade principles in all
+                our partnerships.
+              </p>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <div class="value-content">
+              <h3>Premium Quality</h3>
+              <p>
+                Every piece undergoes rigorous quality checks to ensure
+                exceptional durability, comfort, and aesthetic appeal that
+                exceeds customer expectations.
+              </p>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="value-content">
+              <h3>Customer Excellence</h3>
+              <p>
+                We provide personalized service and attention to detail,
+                ensuring each customer finds the perfect piece for their special
+                occasions and daily wear.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mission-section">
+        <h2>Our Mission</h2>
+        <p>
+          To be the leading curator of authentic Indian ethnic wear, empowering
+          customers to embrace their cultural identity with confidence while
+          supporting traditional artisans and sustainable fashion practices. We
+          strive to make every occasion special by offering timeless pieces that
+          blend heritage with contemporary elegance.
+        </p>
       </div>
     </section>
 
@@ -174,5 +260,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="script.js"></script>
   </body>
 </html>
