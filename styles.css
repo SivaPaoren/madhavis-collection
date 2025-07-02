@@ -251,6 +251,10 @@ footer {
   gap: 1rem;
 }
 
+.contact-section{
+  color: #632121;
+}
+
 .contact-form input,
 .contact-form textarea {
   padding: 0.8rem;
