@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Boutique Collection</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .collection {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #8b4513;
+        margin-bottom: 50px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #d63031, #e17055);
+        border-radius: 2px;
+      }
+
+      .product-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        backdrop-filter: blur(10px);
+      }
+
+      .products {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        padding: 10px;
+      }
+
+      .product-card {
+        min-width: 280px;
+        background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        cursor: pointer;
+        position: relative;
+        border: 2px solid transparent;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        border-color: #d63031;
+      }
+
+      .product-card.active {
+        border-color: #d63031;
+        box-shadow: 0 15px 35px rgba(214, 48, 49, 0.3);
+      }
+
+      .main-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .product-card:hover .main-image {
+        transform: scale(1.05);
+      }
+
+      .product-card h4 {
+        padding: 20px;
+        color: #2d3436;
+        font-size: 1.2rem;
+        text-align: center;
+        background: linear-gradient(90deg, #d63031, #e17055);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: bold;
+      }
+
+      .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(135deg, #d63031, #e17055);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-btn:hover {
+        background: linear-gradient(135deg, #e17055, #d63031);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .scroll-btn.left {
+        left: 10px;
+      }
+
+      .scroll-btn.right {
+        right: 10px;
+      }
+
+      .expand-indicator {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(214, 48, 49, 0.9);
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .product-card.active .expand-indicator {
+        transform: rotate(45deg);
+      }
+
+      /* External Details Section */
+      .product-details {
+        margin-top: 30px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .product-details.expanded {
+        max-height: 600px;
+      }
+
+      .details-content {
+        padding: 30px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease 0.2s;
+      }
+
+      .product-details.expanded .details-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .details-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e17055;
+      }
+
+      .details-title {
+        font-size: 1.8rem;
+        color: #8b4513;
+        font-weight: bold;
+        background: linear-gradient(90deg, #d63031, #e17055);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .close-btn {
+        background: linear-gradient(135deg, #d63031, #e17055);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .close-btn:hover {
+        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .detail-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+        border: 3px solid transparent;
+        background: linear-gradient(145deg, #fff, #f8f9fa);
+      }
+
+      .detail-image:hover {
+        transform: scale(1.05);
+        border-color: #d63031;
+      }
+
+      .product-description {
+        margin-top: 20px;
+        padding: 20px;
+        background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+        border-radius: 15px;
+        color: #2d3436;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .product-card {
+          min-width: 250px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .scroll-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
+        .image-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .details-content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="collection">
+      <h2 class="section-title">Our Latest Products</h2>
+
+      <!-- Product Slider -->
+      <div class="product-slider">
+        <button class="scroll-btn left" id="scrollLeft">❮</button>
+        <div class="products" id="productContainer">
+          <div class="product-card" data-product="kurti">
+            <div class="expand-indicator">+</div>
+            <img
+              src="https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop"
+              alt="Traditional Thai Dress"
+              class="main-image"
+            />
+            <h4>Traditional Thai Dress</h4>
+          </div>
+
+          <div class="product-card" data-product="lahenga">
+            <div class="expand-indicator">+</div>
+            <img
+              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop"
+              alt="Handmade Accessories"
+              class="main-image"
+            />
+            <h4>Handmade Accessories</h4>
+          </div>
+
+          <div class="product-card" data-product="saree">
+            <div class="expand-indicator">+</div>
+            <img
+              src="https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop"
+              alt="Modern Fusion Outfit"
+              class="main-image"
+            />
+            <h4>Modern Fusion Outfit</h4>
+          </div>
+
+          <div class="product-card" data-product="kurti2">
+            <div class="expand-indicator">+</div>
+            <img
+              src="https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop"
+              alt="Elegant Kurta"
+              class="main-image"
+            />
+            <h4>Elegant Kurta Collection</h4>
+          </div>
+
+          <div class="product-card" data-product="lahenga2">
+            <div class="expand-indicator">+</div>
+            <img
+              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop"
+              alt="Bridal Accessories"
+              class="main-image"
+            />
+            <h4>Bridal Accessories</h4>
+          </div>
+
+          <div class="product-card" data-product="saree2">
+            <div class="expand-indicator">+</div>
+            <img
+              src="https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop"
+              alt="Designer Saree"
+              class="main-image"
+            />
+            <h4>Designer Saree Collection</h4>
+          </div>
+        </div>
+        <button class="scroll-btn right" id="scrollRight">❯</button>
+      </div>
+
+      <!-- External Product Details Section -->
+      <div class="product-details" id="productDetails">
+        <div class="details-content">
+          <div class="details-header">
+            <h3 class="details-title" id="detailsTitle">Product Details</h3>
+            <button class="close-btn" id="closeDetails">×</button>
+          </div>
+
+          <div class="image-gallery" id="imageGallery">
+            <!-- Images will be populated by JavaScript -->
+          </div>
+
+          <div class="product-description" id="productDescription">
+            <!-- Description will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const productCards = document.querySelectorAll(".product-card");
+      const scrollLeftBtn = document.getElementById("scrollLeft");
+      const scrollRightBtn = document.getElementById("scrollRight");
+      const productContainer = document.getElementById("productContainer");
+      const productDetails = document.getElementById("productDetails");
+      const detailsTitle = document.getElementById("detailsTitle");
+      const imageGallery = document.getElementById("imageGallery");
+      const productDescription = document.getElementById("productDescription");
+      const closeDetailsBtn = document.getElementById("closeDetails");
+
+      // Product data
+      const productData = {
+        kurti: {
+          title: "Traditional Thai Dress",
+          description:
+            "Exquisite handcrafted traditional Thai dress made from premium silk with intricate golden embroidery. Perfect for special occasions and cultural celebrations. Features authentic Thai patterns and comfortable fit.",
+          images: [
+            "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+          ],
+        },
+        lahenga: {
+          title: "Handmade Accessories",
+          description:
+            "Beautiful collection of handmade accessories including jewelry, bags, and decorative items. Each piece is carefully crafted by skilled artisans using traditional techniques and premium materials.",
+          images: [
+            "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
+          ],
+        },
+        saree: {
+          title: "Modern Fusion Outfit",
+          description:
+            "Contemporary fusion wear that blends traditional Indian elements with modern styling. Made from breathable fabrics with unique prints and comfortable cuts for today's fashion-forward woman.",
+          images: [
+            "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+          ],
+        },
+        kurti2: {
+          title: "Elegant Kurta Collection",
+          description:
+            "Premium kurta collection featuring elegant designs and superior craftsmanship. Made from fine cotton and silk blends with beautiful embroidery work and comfortable fits.",
+          images: [
+            "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+          ],
+        },
+        lahenga2: {
+          title: "Bridal Accessories",
+          description:
+            "Stunning bridal accessories collection including jewelry sets, hair accessories, and decorative items. Perfect for weddings and special celebrations with intricate designs and premium materials.",
+          images: [
+            "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
+          ],
+        },
+        saree2: {
+          title: "Designer Saree Collection",
+          description:
+            "Exclusive designer saree collection featuring premium fabrics, intricate embroidery, and contemporary designs. Each saree is a masterpiece that combines traditional elegance with modern sophistication.",
+          images: [
+            "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+          ],
+        },
+      };
+
+      // Product card click functionality
+      productCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const productId = this.dataset.product;
+          const product = productData[productId];
+
+          // Remove active class from all cards
+          productCards.forEach((otherCard) => {
+            otherCard.classList.remove("active");
+          });
+
+          // Add active class to clicked card
+          this.classList.add("active");
+
+          // Populate product details
+          detailsTitle.textContent = product.title;
+          productDescription.textContent = product.description;
+
+          // Populate images
+          imageGallery.innerHTML = "";
+          product.images.forEach((imageSrc) => {
+            const img = document.createElement("img");
+            img.src = imageSrc;
+            img.alt = product.title;
+            img.className = "detail-image";
+            imageGallery.appendChild(img);
+          });
+
+          // Show details section
+          productDetails.classList.add("expanded");
+        });
+      });
+
+      // Close details functionality
+      closeDetailsBtn.addEventListener("click", function () {
+        productDetails.classList.remove("expanded");
+        productCards.forEach((card) => {
+          card.classList.remove("active");
+        });
+      });
+
+      // Scroll functionality
+      let scrollAmount = 0;
+      const cardWidth = 300;
+
+      scrollLeftBtn.addEventListener("click", () => {
+        scrollAmount = Math.max(scrollAmount - cardWidth, 0);
+        productContainer.style.transform = `translateX(-${scrollAmount}px)`;
+      });
+
+      scrollRightBtn.addEventListener("click", () => {
+        const maxScroll = (productCards.length - 3) * cardWidth;
+        scrollAmount = Math.min(scrollAmount + cardWidth, maxScroll);
+        productContainer.style.transform = `translateX(-${scrollAmount}px)`;
+      });
+
+      // Auto-scroll functionality
+      let autoScrollInterval;
+
+      const startAutoScroll = () => {
+        autoScrollInterval = setInterval(() => {
+          const maxScroll = (productCards.length - 3) * cardWidth;
+          if (scrollAmount >= maxScroll) {
+            scrollAmount = 0;
+          } else {
+            scrollAmount += cardWidth;
+          }
+          productContainer.style.transform = `translateX(-${scrollAmount}px)`;
+        }, 5000);
+      };
+
+      const stopAutoScroll = () => {
+        clearInterval(autoScrollInterval);
+      };
+
+      // Start auto-scroll
+      startAutoScroll();
+
+      // Pause auto-scroll on hover
+      productContainer.addEventListener("mouseenter", stopAutoScroll);
+      productContainer.addEventListener("mouseleave", startAutoScroll);
+
+      // Mobile touch support
+      let startX = 0;
+      let scrollLeft = 0;
+
+      productContainer.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX;
+        scrollLeft = scrollAmount;
+      });
+
+      productContainer.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        const x = e.touches[0].pageX;
+        const walk = (startX - x) * 2;
+        const newScrollAmount = Math.max(
+          0,
+          Math.min(scrollLeft + walk, (productCards.length - 3) * cardWidth)
+        );
+        productContainer.style.transform = `translateX(-${newScrollAmount}px)`;
+      });
+
+      productContainer.addEventListener("touchend", (e) => {
+        const x = e.changedTouches[0].pageX;
+        const walk = startX - x;
+        scrollAmount = Math.max(
+          0,
+          Math.min(scrollLeft + walk, (productCards.length - 3) * cardWidth)
+        );
+      });
+    </script>
+  </body>
+</html>

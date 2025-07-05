@@ -7,6 +7,7 @@
 }
 
 body {
+  font-family: "Georgia", serif;
   line-height: 1.6;
   background: #c2ddd0;
   color: #ffffff;
@@ -120,98 +121,7 @@ body {
 
 
 
-/* Products */
-.collection {
-  padding: 2rem;
-  text-align: center;
-}
 
-.product-slider {
-  position: relative;
-  width: 100%;
-  margin: 2rem auto;
-}
-
-.products {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-snap-align: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-/*Product card start here*/
-
-.product-card {
-  flex: 0 0 auto;
-  width: 300px;
-  scroll-snap-align: center;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: #12492e;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
-.products::-webkit-scrollbar {
-  height: 6px;
-}
-
-.products::-webkit-scrollbar-thumb {
-  background: #b42b51;
-  border-radius: 10px;
-}
-
-.products::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Arrow buttons (desktop only) */
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #b42b51;
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 2;
-  display: none;
-}
-
-.scroll-btn.left {
-  left: 10px;
-}
-
-.scroll-btn.right {
-  right: 10px;
-}
-
-@media (min-width: 768px) {
-  .scroll-btn {
-    display: block;
-  }
-}
-
-
-/*Product card ends here*/
 
 footer {
   margin-top: 2rem;
@@ -301,23 +211,22 @@ footer {
 .slides {
   position: relative;
   height: 100%;
-  display: flex;
 }
-
 /* Individual slides */
 .slide {
-  position: relative; /* <-- change from absolute to relative */
+  opacity: 0;
+  pointer-events: none; /* prevents clicks on invisible slides */
+  transition: opacity 1s ease-in-out;
+  position: absolute;   /* stack slides on top of each other */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  background-color: #ffe6eb;
-  flex-shrink: 0;
 }
 
 .slide.active {
   opacity: 1;
+  pointer-events: auto;
   z-index: 1;
 }
 
@@ -345,19 +254,6 @@ footer {
   right: 10px;
 }
 
-/* Learn More Button */
-.learn-more {
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #b42b51;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 2;
-}
 
 /* Responsive slider heights */
 .slider {

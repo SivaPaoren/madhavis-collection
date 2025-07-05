@@ -1,24 +1,24 @@
-
-//hamburger slider part
+// ✅ Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
+hamburger?.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navLinks.classList.toggle('open');
 });
 
 
-  const slides = document.querySelectorAll(".slide");
-  const nextBtn = document.getElementById("next");
-  const prevBtn = document.getElementById("prev");
-  const slider = document.getElementById("slider");
-  const dotsContainer = document.getElementById("dots");
+// ✅ Main image slider
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
 
-  let index = 0;
-  let intervalId;
+let index = 0;
+let intervalId;
 
-  // ✅ Create dots dynamically
+if (slides.length > 0 && slider && dotsContainer) {
   slides.forEach((_, i) => {
     const dot = document.createElement("div");
     dot.classList.add("dot");
@@ -65,17 +65,16 @@ hamburger.addEventListener('click', () => {
     startAutoSlide();
   }
 
-  nextBtn.addEventListener("click", () => {
+  nextBtn?.addEventListener("click", () => {
     nextSlide();
     resetInterval();
   });
 
-  prevBtn.addEventListener("click", () => {
+  prevBtn?.addEventListener("click", () => {
     prevSlide();
     resetInterval();
   });
 
-  // ✅ Pause on hover
   slider.addEventListener("mouseenter", stopAutoSlide);
   slider.addEventListener("mouseleave", startAutoSlide);
 
@@ -83,8 +82,6 @@ hamburger.addEventListener('click', () => {
     showSlide(index);
     startAutoSlide();
   });
-
-
 
   // ✅ Swipe support
   let touchStartX = 0;
@@ -111,68 +108,74 @@ hamburger.addEventListener('click', () => {
       resetInterval();
     }
   }
+}
 
-  //sliding the small images
-  const container = document.getElementById("productContainer");
-  const scrollLeftBtn = document.getElementById("scrollLeft");
-  const scrollRightBtn = document.getElementById("scrollRight");
 
-  scrollLeftBtn.addEventListener("click", () => {
-    container.scrollBy({
-      left: -250,
-      behavior: "smooth"
-    });
+// ✅ Small product slider (renamed variables to avoid conflict)
+const smallSliderContainer = document.getElementById("productContainer");
+const smallSliderLeft = document.getElementById("scrollLeft");
+const smallSliderRight = document.getElementById("scrollRight");
+
+smallSliderLeft?.addEventListener("click", () => {
+  smallSliderContainer?.scrollBy({
+    left: -250,
+    behavior: "smooth"
+  });
+});
+
+smallSliderRight?.addEventListener("click", () => {
+  smallSliderContainer?.scrollBy({
+    left: 250,
+    behavior: "smooth"
+  });
+});
+
+
+// ✅ Video card slider
+const videoSlider = document.getElementById('videoSlider');
+const scrollVideoLeft = document.getElementById('scrollVideoLeft');
+const scrollVideoRight = document.getElementById('scrollVideoRight');
+
+scrollVideoLeft?.addEventListener('click', () => {
+  videoSlider?.scrollBy({
+    left: -300,
+    behavior: 'smooth'
+  });
+});
+
+scrollVideoRight?.addEventListener('click', () => {
+  videoSlider?.scrollBy({
+    left: 300,
+    behavior: 'smooth'
+  });
+});
+
+
+// ✅ Contact form validation (using jQuery)
+$(document).ready(function () {
+  $('#contactForm').on('submit', function (e) {
+    e.preventDefault();
+    const name = $('#name').val().trim();
+    const email = $('#email').val().trim();
+    const message = $('#message').val().trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields!');
+      return;
+    }
+
+    $('#formMessage').fadeIn();
+    $(this)[0].reset();
   });
 
-  scrollRightBtn.addEventListener("click", () => {
-    container.scrollBy({
-      left: 250,
-      behavior: "smooth"
-    });
-  });
+  // ✅ Set current year in footer
+  $('#year').text(new Date().getFullYear());
+});
 
 
+// ✅ Fallback for year if jQuery fails
+const yearElem = document.getElementById("year");
+if (yearElem) {
+  yearElem.textContent = new Date().getFullYear();
+}
 
-
-  //video card slider part
-   const videoSlider = document.getElementById('videoSlider');
-  const scrollVideoLeft = document.getElementById('scrollVideoLeft');
-  const scrollVideoRight = document.getElementById('scrollVideoRight');
-
-  scrollVideoLeft.addEventListener('click', () => {
-    videoSlider.scrollBy({
-      left: -300,
-      behavior: 'smooth'
-    });
-  });
-
-  scrollVideoRight.addEventListener('click', () => {
-    videoSlider.scrollBy({
-      left: 300,
-      behavior: 'smooth'
-    });
-  });
-
-  $(document).ready(function () {
-      $('#contactForm').on('submit', function (e) {
-        e.preventDefault();
-        const name = $('#name').val().trim();
-        const email = $('#email').val().trim();
-        const message = $('#message').val().trim();
-
-        if (!name || !email || !message) {
-          alert('Please fill in all fields!');
-          return;
-        }
-
-        $('#formMessage').fadeIn();
-        $(this)[0].reset();
-      });
-    });
-
-    // Set current year in footer
-    $('#year').text(new Date().getFullYear());
-
-
-
-document.getElementById("year").textContent = new Date().getFullYear();
