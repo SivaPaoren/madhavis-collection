@@ -16,10 +16,14 @@ const productData = {
     description:
       "Exquisite handcrafted traditional Thai dress made from premium silk with intricate golden embroidery...",
     images: [
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+  "images/img.jpeg",
+  "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg",
+  "images/img5.jpeg",
+  "images/img7.jpeg",
+  "images/img8.jpeg",
+  "images/img9.jpeg",
     ],
   },
   lahenga: {
@@ -27,10 +31,13 @@ const productData = {
     description:
       "Beautiful collection of handmade accessories including jewelry, bags, and decorative items...",
     images: [
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
+       "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg",
+  "images/img5.jpeg",
+  "images/img7.jpeg",
+  "images/img8.jpeg",
+  "images/img9.jpeg",
     ],
   },
   saree: {
@@ -38,10 +45,13 @@ const productData = {
     description:
       "Contemporary fusion wear that blends traditional Indian elements with modern styling...",
     images: [
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
+       "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg",
+  "images/img5.jpeg",
+  "images/img7.jpeg",
+  "images/img8.jpeg",
+  "images/img9.jpeg",
     ],
   },
   kurti2: {
@@ -49,10 +59,13 @@ const productData = {
     description:
       "Premium kurta collection featuring elegant designs and superior craftsmanship...",
     images: [
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+     "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg",
+  "images/img5.jpeg",
+  "images/img7.jpeg",
+  "images/img8.jpeg",
+  "images/img9.jpeg",
     ],
   },
   lahenga2: {
@@ -60,10 +73,13 @@ const productData = {
     description:
       "Stunning bridal accessories collection including jewelry sets, hair accessories, and decorative items...",
     images: [
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=200&fit=crop",
+     "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg",
+  "images/img5.jpeg",
+  "images/img7.jpeg",
+  "images/img8.jpeg",
+  "images/img9.jpeg",
     ],
   },
   saree2: {
@@ -71,10 +87,13 @@ const productData = {
     description:
       "Exclusive designer saree collection featuring premium fabrics, intricate embroidery...",
     images: [
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733981-cdc7b1b8c498?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=300&h=200&fit=crop",
+       "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg",
+  "images/img5.jpeg",
+  "images/img7.jpeg",
+  "images/img8.jpeg",
+  "images/img9.jpeg",
     ],
   },
 };
