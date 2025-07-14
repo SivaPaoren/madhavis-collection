@@ -136,14 +136,14 @@ const productData = {
     description:
       "Add a touch of tradition and style with handcrafted Indian accessories that uplift any outfit.",
     images: [
-       "images/indian-accessories/accessories1.jpg",
-       "images/indian-accessories/accessories2.jpeg",
-       "images/indian-accessories/accessories3.jpeg",
-       "images/indian-accessories/accessories4.jpeg",
-       "images/indian-accessories/accessories5.jpeg",
-       "images/indian-accessories/accessories6.jpeg",
-       "images/indian-accessories/accessories7.jpeg",
-       "images/indian-accessories/accessories8.jpeg"
+       "images/indian-Accessories/accessories1.jpg",
+       "images/indian-Accessories/accessories2.jpeg",
+       "images/indian-Accessories/accessories3.jpeg",
+       "images/indian-Accessories/accessories4.jpeg",
+       "images/indian-Accessories/accessories5.jpeg",
+       "images/indian-Accessories/accessories6.jpeg",
+       "images/indian-Accessories/accessories7.jpeg",
+       "images/indian-Accessories/accessories8.jpeg"
     ],
   },
 };
