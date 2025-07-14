@@ -131,7 +131,7 @@ const productData = {
        "images/Silk-saree/silksaree8.webp",
     ],
   },
-   accessories: {
+   accessories‎: {
     title: "Accessories",
     description:
       "Add a touch of tradition and style with handcrafted Indian accessories that uplift any outfit.",
