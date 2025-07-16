@@ -57,7 +57,7 @@
 
         .product-card {
             flex: 0 0 auto;
-            width: 300px;
+            width: 320px;
             scroll-snap-align: center;
             border: 1px solid #ddd;
             border-radius: 10px;
